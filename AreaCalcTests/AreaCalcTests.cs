@@ -1,4 +1,6 @@
 ﻿using AreaCalc;
+using AreaCalc.BaseEntity;
+using AreaCalc.Figures;
 
 namespace AreaCalcTests;
 

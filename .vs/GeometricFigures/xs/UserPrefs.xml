@@ -1,0 +1,5 @@
+﻿<Properties StartupConfiguration="{AD462660-D896-4FE8-BF9E-93E49B85A2FC}|Default">
+  <MonoDevelop.Ide.ItemProperties.GeometricFigures PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

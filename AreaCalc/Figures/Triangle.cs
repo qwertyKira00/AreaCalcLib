@@ -1,11 +1,6 @@
-﻿namespace AreaCalc;
+﻿using AreaCalc.BaseEntity;
 
-public abstract class GeometricFigure
-{
-    // Method for getting figure's area
-    public abstract double CalculateArea();
-
-}
+namespace AreaCalc.Figures;
 
 public class Triangle : GeometricFigure
 {
@@ -13,7 +8,7 @@ public class Triangle : GeometricFigure
     {
         FirstSide = firstSide;
         SecondSide = secondSide;
-        ThirdSide = thirdSide;
+        ThirdSide = thirdSide; 
     }
 
     double _firstSide;
@@ -45,7 +40,7 @@ public class Triangle : GeometricFigure
     }
 
     public bool isRightAngleTriangle()
-    { 
+    {
         var hypotenuse = (FirstSide >= SecondSide && FirstSide >= ThirdSide) ? FirstSide :
             (SecondSide >= FirstSide && SecondSide >= ThirdSide) ? SecondSide : ThirdSide;
         var cathetus1 = FirstSide != hypotenuse ? FirstSide : SecondSide;
@@ -56,22 +51,4 @@ public class Triangle : GeometricFigure
     }
 
     private double CalculateSemiPerimeter() => (FirstSide + SecondSide + ThirdSide) / 2;
-}
-
-public class Circle : GeometricFigure
-{
-    public Circle(double radius)
-    {
-        Radius = radius;
-    }
-
-    double _radius;
-    public double Radius
-    {
-        get => _radius;
-        set { _radius = value; }
-    }
-
-    public override double CalculateArea() => Radius * Radius * Math.PI;
-
 }

@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Figures\" />
+    <None Remove="BaseEntity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Figures\" />
+    <Folder Include="BaseEntity\" />
+  </ItemGroup>
 </Project>

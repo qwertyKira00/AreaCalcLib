@@ -1,4 +1,5 @@
 ﻿using AreaCalc;
+using AreaCalc.Figures;
 
 namespace Program;
 

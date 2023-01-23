@@ -1,4 +1,6 @@
-﻿namespace AreaCalc;
+﻿using AreaCalc.BaseEntity;
+
+namespace AreaCalc;
 
 public class AreaCalculator
 {
