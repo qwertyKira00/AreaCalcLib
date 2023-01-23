@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  geometricfigures:
+    image: ${DOCKER_REGISTRY-}geometricfigures
+    build:
+      context: .
+      dockerfile: GeometricFigures/Dockerfile
