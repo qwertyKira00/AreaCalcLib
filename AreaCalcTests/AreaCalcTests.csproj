@@ -24,4 +24,20 @@
   <ItemGroup>
     <ProjectReference Include="..\AreaCalc\AreaCalc.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="TriangleTests\" />
+    <None Remove="CircleTests\" />
+    <None Remove="TriangleTests\TriangleNegativeTests\" />
+    <None Remove="TriangleTests\TrianglePositiveTests\" />
+    <None Remove="CircleTests\CircleNegativeTests\" />
+    <None Remove="CircleTests\CirclePositiveTests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TriangleTests\" />
+    <Folder Include="CircleTests\" />
+    <Folder Include="TriangleTests\TriangleNegativeTests\" />
+    <Folder Include="TriangleTests\TrianglePositiveTests\" />
+    <Folder Include="CircleTests\CircleNegativeTests\" />
+    <Folder Include="CircleTests\CirclePositiveTests\" />
+  </ItemGroup>
 </Project>
