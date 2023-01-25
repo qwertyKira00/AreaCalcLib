@@ -4,51 +4,90 @@ namespace AreaCalc.Figures;
 
 public class Triangle : GeometricFigure
 {
-    public Triangle(double firstSide, double secondSide, double thirdSide)
+    public Triangle(double side1, double side2, double side3)
     {
-        FirstSide = firstSide;
-        SecondSide = secondSide;
-        ThirdSide = thirdSide; 
+        _side1 = side1;
+        _side2 = side2;
+        _side3 = side3;
+
+        if (!IsValidTriangle())
+        {
+            throw new ArgumentOutOfRangeException();
+        }
     }
 
-    double _firstSide;
-    public double FirstSide
+    private double _side1;
+    public double Side1
     {
-        get => _firstSide;
-        set { _firstSide = value; }
+        get => _side1;
+        set
+        {
+            if (value > 0)
+            {
+                _side1 = value;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 
-    double _secondSide;
-    public double SecondSide
+    private double _side2;
+    public double Side2
     {
-        get => _secondSide;
-        set { _secondSide = value; }
+        get => _side2;
+        set
+        {
+            if (value > 0)
+            {
+                _side2 = value;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 
-    double _thirdSide;
-    public double ThirdSide
+    private double _side3;
+    public double Side3
     {
-        get => _thirdSide;
-        set { _thirdSide = value; }
+        get => _side3;
+        set
+        {
+            if (value > 0)
+            {
+                _side3 = value;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 
     public override double CalculateArea()
     {
         var semiPerimeter = CalculateSemiPerimeter();
-        return Math.Sqrt(semiPerimeter * (semiPerimeter - FirstSide) *
-            (semiPerimeter - SecondSide) * (semiPerimeter - ThirdSide));
+        return Math.Sqrt(semiPerimeter * (semiPerimeter - _side1) *
+            (semiPerimeter - _side2) * (semiPerimeter - _side3));
     }
 
-    public bool isRightAngleTriangle()
+    public bool IsRightAngled()
     {
-        var hypotenuse = (FirstSide >= SecondSide && FirstSide >= ThirdSide) ? FirstSide :
-            (SecondSide >= FirstSide && SecondSide >= ThirdSide) ? SecondSide : ThirdSide;
-        var cathetus1 = FirstSide != hypotenuse ? FirstSide : SecondSide;
-        var cathetus2 = (FirstSide != hypotenuse && FirstSide != cathetus1) ? FirstSide :
-            (SecondSide != hypotenuse && SecondSide != cathetus1) ? SecondSide : ThirdSide;
+        var side1_squared = _side1 * _side1;
+        var side2_squared = _side2 * _side2;
+        var side3_squared = _side3 * _side3;
 
-        return hypotenuse * hypotenuse == cathetus1 * cathetus1 + cathetus2 * cathetus2;
+        return side1_squared == side2_squared + side3_squared ||
+            side2_squared == side1_squared + side3_squared ||
+            side3_squared == side1_squared + side2_squared;
     }
 
-    private double CalculateSemiPerimeter() => (FirstSide + SecondSide + ThirdSide) / 2;
+    private bool IsValidTriangle() => _side1 < _side2 + _side3 &&
+        _side2 < _side1 + _side3 && _side3 < _side1 + _side2;
+
+
+    private double CalculateSemiPerimeter() => (_side1 + _side2 + _side3) / 2;
 }

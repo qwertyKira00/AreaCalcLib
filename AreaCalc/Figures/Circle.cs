@@ -6,16 +6,33 @@ public class Circle : GeometricFigure
 {
     public Circle(double radius)
     {
-        Radius = radius;
+       if (radius > 0)
+       {
+            _radius = radius;
+       }
+       else
+       {
+            throw new ArgumentOutOfRangeException();
+       }
+
     }
 
-    double _radius;
+    private double _radius;
     public double Radius
     {
         get => _radius;
-        set { _radius = value; }
+        set
+        {
+            if (value > 0)
+            {
+                _radius = value;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 
-    public override double CalculateArea() => Radius * Radius * Math.PI;
-
+    public override double CalculateArea() => _radius * _radius * Math.PI;
 }

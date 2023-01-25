@@ -5,17 +5,16 @@ namespace Program;
 
 class Program
 {
-   
     static async Task Main(string[] args)
     {
         var areaCalculator = new AreaCalculator();
-        var t = new Triangle(2.1, 3.5, 2.8);
-        var c = new Circle(10);
+        var t = new Triangle(4, 9, 10);
+        var c = new Circle(200);
        
         // Triangle area
         Console.WriteLine(areaCalculator.CalcGeometricFigureArea(t));
-        // Check if triangle is right angle triangle
-        Console.WriteLine(t.isRightAngleTriangle());
+        // Check if triangle is right-angled
+        Console.WriteLine(t.IsRightAngled());
 
         // Circle area
         Console.WriteLine(areaCalculator.CalcGeometricFigureArea(c));
